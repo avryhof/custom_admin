@@ -29,4 +29,21 @@ class Migration(migrations.Migration):
                 ('user', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
             ],
         ),
+        migrations.CreateModel(
+            name='EmailReport',
+            fields=[
+                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('enabled', models.BooleanField(default=True)),
+                ('report_name', models.CharField(blank=True, max_length=150, null=True)),
+            ],
+        ),
+        migrations.CreateModel(
+            name='EmailRecipient',
+            fields=[
+                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('enabled', models.BooleanField(default=True)),
+                ('email', models.EmailField(blank=True, max_length=254, null=True)),
+                ('reports', models.ManyToManyField(to='custom_admin.EmailReport')),
+            ],
+        ),
     ]
