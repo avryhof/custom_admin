@@ -1,0 +1,2 @@
+include README.md
+recursive-include custom_admin *.html *.txt *.png *.gif *js *.css *jpg *jpeg *svg *py
